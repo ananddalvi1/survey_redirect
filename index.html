@@ -1,16 +1,28 @@
-<script>
-  const formA = "https://forms.gle/ub1D8NgBk3JkYSiV6";
-  const formB = "https://forms.gle/HZUKCaMve7WvYWNb8";
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Assigning survey group...</p>
 
-  // Check if user already assigned
-  let assignedForm = localStorage.getItem("survey_group");
+  <script>
+    const formA = "https://forms.gle/ub1D8NgBk3JkYSiV6";
+    const formB = "https://forms.gle/HZUKCaMve7WvYWNb8";
 
-  if (!assignedForm) {
-    // Assign randomly once
-    assignedForm = Math.random() < 0.5 ? formA : formB;
-    localStorage.setItem("survey_group", assignedForm);
-  }
+    // Always fresh randomization (NO localStorage)
+    const rand = Math.random();
+    const group = rand < 0.5 ? "A" : "B";
 
-  // Redirect
-  window.location.replace(assignedForm);
-</script>
+    console.log("Random:", rand);
+    console.log("Group:", group);
+
+    const target = group === "A" ? formA : formB;
+
+    // Small delay so script executes properly
+    setTimeout(() => {
+      window.location.href = target + "?group=" + group;
+    }, 300);
+  </script>
+</body>
+</html>
