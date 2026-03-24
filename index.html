@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading survey...</title>
+</head>
+<body>
+  <p>Redirecting you to the survey, please wait...</p>
+  <script>
+    const formA = "https://docs.google.com/forms/d/e/1FAIpQLSec2xDcHHVgrrdlE6WONBzahIKFnhrVOjqwjHSUOkK5yPnRzw/viewform?usp=dialog"; // Testing group
+    const formB = "https://docs.google.com/forms/d/e/1FAIpQLSdJBKzaLNo7fS6CgpuBArCwJcI1WaOAXIG6fOqQACtTQTO_RA/viewform?usp=dialog"; // Training group
+    const target = Math.random() < 0.5 ? formA : formB;
+    window.location.replace(target);
+  </script>
+</body>
+</html>
